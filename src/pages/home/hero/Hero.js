@@ -1,8 +1,8 @@
 import React from "react"
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Heading from "../../../components/heading/Heading"
 import "./Hero.css"
-import { Box, Button, createTheme, styled } from "@mui/material"
+import { Box, Button} from "@mui/material"
 import homeImage from "../../../assets/cover.jpg";
 import Header from "../../../components/header/Header"
 
