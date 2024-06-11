@@ -18,6 +18,7 @@ export const homeAbout = [
     cover: "https://img.icons8.com/?size=100&id=11658&format=png&color=000000",
     title: "Check Status",
     desc: "Effortlessly track the status of your permits / licenses and download them upon completion",
+    path: "/citizen/checkstatus"
   },
 ]
 
@@ -27,18 +28,21 @@ export const gramaHome = [
     cover: "https://img.icons8.com/?size=100&id=25283&format=png&color=000000",
     title: "Timber Cutting Permission Requests",
     desc:  "Check and approve Timber Cutting License requests from your local community",
+    path: "/gramasewaka/allcuttingrequests"
   },
   {
     id: 2,
     cover: "https://img.icons8.com/?size=100&id=eYDrANS6kGeR&format=png&color=000000",
     title: "Timber Transport Permission Requests",
     desc:  "Check and approve Timber Transport Permit requests from your local community",
+    path: "/gramasewaka/alltransportrequests"
   },
   {
     id: 3,
     cover: "https://img.icons8.com/?size=100&id=7YM7E0FU20tN&format=png&color=000000",
     title: "View History",
     desc: "Access a comprehensive overview of previous timber cutting and transport requests ",
+    path: "/gramasewaka/viewhistory"
   },
 ]
 export const awrapper = [

@@ -6,7 +6,7 @@ import Header from "../../components/header/Header";
 const CitizenHome = () => {
     return (
         <div>
-            <Header isUser={true}/>
+            <Header isLoggedIn={true}/>
             <AboutCard 
             titlee = "Explore Our Services"
             backgroundImage={citizenImage}

@@ -25,11 +25,12 @@ export const useLogin = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password })
+      body: JSON.stringify({ username, password }),
+      credentials: 'include'
     })
     const json = await response.json()
     const userRole = json.userRole;
-    console.log('User Role:', userRole);
+    console.log(json);
 
     if (!response.ok) {
       setIsLoading(false)

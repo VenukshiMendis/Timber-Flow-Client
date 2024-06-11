@@ -2,7 +2,7 @@ import React, { useState }  from "react"
 import { Link } from "react-router-dom"
 import "./header.css"
 
-const Header = ({isUser}) => {
+const Header = ({isLoggedIn}) => {
   const [click, setClick] = useState(false)
   return (
     <>
@@ -14,7 +14,7 @@ const Header = ({isUser}) => {
           <header>
           <nav className='flexSB'>
             <ul className={click ? "mobile-nav" : "flexSB "} onClick={() => setClick(false)}>
-            {isUser ? (
+            {isLoggedIn ? (
                   <>
                     <li>
                       <h1><Link to='/'>My Profile</Link></h1>

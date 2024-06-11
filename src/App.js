@@ -1,10 +1,8 @@
 import { BrowserRouter,Route, Routes } from "react-router-dom"
 import Home from "./pages/home/Home";
-import CitizenHome from "./pages/Citizen/CitizenHome"
-import GramaSewakaHome from "./pages/GramaSewaka/GramaSewakaHome"
-import DivisionalSecretaryHome from "./pages/DivisionalSecretary/DivisionalSecretaryHome"
-import TimberCuttingLicense from "./pages/Citizen/TimberCuttingLicense"
-import TimberTransportLicense from "./pages/Citizen/TimberTransportLicense"
+import CitizenRoutes from "./Routes/CitizenRoutes";
+import GramaSewakaRoutes from "./Routes/GramaSewakaRoutes";
+import DivisionalSecretaryRoutes from "./Routes/DivisionalSecretaryRoutes";
 import './App.css';
 import Login from "./pages/Common/Login";
 
@@ -15,14 +13,10 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />}/>
       <Route path="/login" element={<Login />}/>
-      {/* citizen */} 
-      <Route exact path="/citizen" element={<CitizenHome/>} />
-      <Route exact path="/citizen/timbercutting" element={<TimberCuttingLicense/>} />
-      <Route exact path="/citizen/timbertransport" element={<TimberTransportLicense/>} />
-      {/* grama sewaka */}
-      <Route path="/gramasewaka" element={<GramaSewakaHome/>} />
-      {/* divisional secretary */}
-      <Route path="/divisionalsecretary" element={<DivisionalSecretaryHome/>} />
+      <Route path="/citizen/*" element={<CitizenRoutes />} />
+      <Route path="/gramasewaka/*" element={<GramaSewakaRoutes/>} />
+      <Route path="/divisionalsecretary/*" element={<DivisionalSecretaryRoutes/>} />
+
     </Routes>
   </BrowserRouter>
         
