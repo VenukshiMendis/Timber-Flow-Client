@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# TimberFlow: Timber Permit Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+**TimberFlow** is a web application designed to streamline and automate the process of obtaining timber cutting and transport permits in Sri Lanka. The system replaces the existing manual and time-consuming process with a more efficient, transparent, and user-friendly online platform. 
 
-In the project directory, you can run:
+Citizens can submit applications and required documents digitally, while relevant authorities such as the **Grama Sewaka** and **Divisional Secretariat** can approve, reject, or manage these requests. The platform allows users to track the status of their requests in real time, receive timely notifications, and download approved permits directly from the platform.
 
-### `npm start`
+## Scope
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+TimberFlow aims to address inefficiencies in the current manual permit approval process by automating several critical tasks. Below are the key features and functionalities of the system:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 1. **Digital Permit Application Submission**
+- Citizens can apply for permits to cut dangerous trees (e.g., Jackfruit, Palm, Coconut) and obtain licenses for timber transport.
+- The system auto-populates the application details based on the registered user’s information, streamlining the submission process.
+- Citizens can upload required documents and submit applications online for approval.
 
-### `npm test`
+### 2. **Real-Time Status Tracking**
+- Citizens can track the status of their permit requests in real time.
+- The platform provides timely updates and ensures transparency throughout the approval process.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3. **SMS Notifications**
+- SMS notifications are sent to citizens upon approval, rejection, or if there are issues with the submitted documents.
+- Citizens are kept informed of any action taken regarding their application, ensuring efficient communication.
 
-### `npm run build`
+### 4. **Permit Download**
+- Once the Divisional Secretariat approves the request, citizens can download their approved permits directly from the platform.
+- This feature ensures quick access to permits, enabling citizens to proceed with their timber-related activities without delay.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 5. **User Account Management**
+- Users can create accounts, register, and manage their profiles to keep their information up-to-date.
+- The system ensures that user information is accurately maintained for communication and record-keeping.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 6. **Approval Workflow for Authorities**
+- **Grama Sewakas** and **Divisional Secretariat** officers can access, review, and process permit applications through the TimberFlow platform.
+- They have the ability to approve, reject, or provide feedback on applications, improving workflow and decision-making efficiency.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 7. **Historical Data Access**
+- Authorities can view the complete history of all permit applications, including past approvals and rejections.
+- This feature ensures transparency, accountability, and the ability to track past decisions for future reference.
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Citizen Features:**
+  - Application submission with document upload
+  - Real-time tracking of permit requests
+  - SMS notifications on status updates and issues
+  - Downloading approved permits
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Grama Sewaka Features:**
+  - Viewing and reviewing all permit applications
+  - Approving/rejecting applications and managing issues with documents
+  - Access to application history
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Divisional Secretariat Features:**
+  - Reviewing all approved permit requests
+  - Approving or rejecting applications
+  - Viewing detailed application history for transparency and accountability
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
