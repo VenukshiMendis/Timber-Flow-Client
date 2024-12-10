@@ -10,7 +10,7 @@ import useGetAllRequests from "../../hooks/useGetAllRequests";
 const CheckStatus = () => {
     const navigate = useNavigate();
 
-    const url ="http://localhost:4000/api/gramasewaka/allCuttingPermitRequests";
+    const url ="http://localhost:4000/api/divisionalsecretary/allCuttingPermitRequests";
 
     const {getAllRequests,requests, isLoading} = useGetAllRequests(url);
     const [rows, setRows] = useState([]); 
@@ -33,6 +33,7 @@ const CheckStatus = () => {
               name: row.name,
               nic: row.nic,
               date: new Date(row.date).toDateString(),
+              gramasewakaApproval: row.grama_sewaka_approval
           }));
           setRows(updatedRows);
       }
@@ -40,9 +41,10 @@ const CheckStatus = () => {
 
   const columns = [
     { field: "id", headerName: "Reference No", width: 150},
-    { field: "name", headerName: "Name of the Applicant", width: 350 },
-    { field: "nic", headerName: "NIC Number", width: 300 },
-    { field: "date", headerName: "Date", width: 250 },
+    { field: "name", headerName: "Name of the Applicant", width: 250 },
+    { field: "nic", headerName: "NIC Number", width: 200 },
+    { field: "date", headerName: "Date", width: 200 },
+    { field: "gramasewakaApproval", headerName: "Gramasewaka Approval", width: 250 },
     {
         field: "actions",
         headerName: "Actions",
@@ -54,7 +56,7 @@ const CheckStatus = () => {
               color="primary"
               size="small"
               style={{ marginRight: 10 }}
-              onClick={() => navigate(`/gramasewaka/cuttingrequest/${params.row.id}`)}
+              onClick={() => navigate(`/divisionalsecretary/cuttingrequest/${params.row.id}`)}
             >
               View Details
             </Button>

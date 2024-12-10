@@ -90,7 +90,9 @@ const landOwnerships=[
     const [supplier, setSupplier] = useState("private store");
 
     const handleChange = (event) => {
+        console.log(event.target.value)
         setSupplier(event.target.value);
+        
     };
     
 
@@ -283,7 +285,7 @@ const landOwnerships=[
                         value={supplier}
                         onChange={handleChange}>
                         <FormControlLabel value="private store" control={<Radio />} label="A pivate store" />
-                        <FormControlLabel value="land owner" control={<Radio />} label="A private land owner" />
+                        <FormControlLabel value="private land owner" control={<Radio />} label="A private land owner" />
                     </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -326,7 +328,7 @@ const landOwnerships=[
                 </Grid>
                 </>
             )}
-            {supplier === 'land owner' && (
+            {supplier === 'private land owner' && (
                 <>
                 <Typography 
                 variant="h6" 

@@ -4,13 +4,24 @@ import { Box, Button, Typography } from "@mui/material";
 import Header from "../../components/header/Header";
 import { grey} from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 import useGetAllRequests from "../../hooks/useGetAllRequests";
+import { useEffect, useState } from "react";
 
 const CheckStatus = () => {
     const navigate = useNavigate();
 
-    const url ="http://localhost:4000/api/gramasewaka/allCuttingPermitRequests";
+    // Navigate based on the request type
+    const handleViewDetails = (id,requestType) => {
+      console.log(id)
+        if (requestType === "transport") {
+                navigate(`/gramasewaka/viewtransportrequest/${id}`)
+        }
+        else if (requestType === "cutting") {
+            navigate(`/gramasewaka/viewcuttingrequest/${id}`)
+    }
+      };
+      
+    const url ="http://localhost:4000/api/divisionalsecretary/allPreviousRequests";
 
     const {getAllRequests,requests, isLoading} = useGetAllRequests(url);
     const [rows, setRows] = useState([]); 
@@ -23,30 +34,39 @@ const CheckStatus = () => {
     }, []);
     
     useEffect(() => {
-      // Update rows when requests change and isLoading becomes false
-      if (!isLoading && requests.length > 0) {
-          console.log(requests);
+        // Update rows when requests change and isLoading becomes false
+        if (!isLoading && requests.length > 0) {
+            console.log(requests);
 
-          // Map requests to rows and update rows state
-          const updatedRows = requests.map((row) => ({
-              id: row.req_id,
-              name: row.name,
-              nic: row.nic,
-              date: new Date(row.date).toDateString(),
-          }));
-          setRows(updatedRows);
-      }
-  }, [requests, isLoading]);     
+            // Map requests to rows and update rows state
+            const updatedRows = requests.map((row) => ({
+                id: row.req_id,
+                requestType: row.request_type,
+                name: row.name,
+                nic: row.nic,
+                date: new Date(row.date).toDateString(),
+                gramaSewakaApproval: row.grama_sewaka_approval,
+                divisionalSecretaryApproval:row.divisional_secretary_approval,
+                status:row.status
+
+            }));
+            setRows(updatedRows);
+        }
+    }, [requests, isLoading]);    
 
   const columns = [
-    { field: "id", headerName: "Reference No", width: 150},
-    { field: "name", headerName: "Name of the Applicant", width: 350 },
-    { field: "nic", headerName: "NIC Number", width: 300 },
-    { field: "date", headerName: "Date", width: 250 },
+    { field: "id", headerName: "Reference No", width: 100},
+    { field: "requestType", headerName: "Request Type", width: 150 },
+    { field: "name", headerName: "Name of the Applicant", width: 200 },
+    { field: "nic", headerName: "NIC Number", width: 150 },
+    { field: "date", headerName: "Date", width: 150 },
+    { field: "gramaSewakaApproval", headerName: "Grama Sewaka Approval", width: 250 },
+    { field: "divisionalSecretaryApproval", headerName: "Divisional Secretary Approval", width: 250 },
+    { field: "status", headerName: "Status", width: 150 },
     {
         field: "actions",
         headerName: "Actions",
-        width: 250,
+        width: 400,
         renderCell: (params) => (
           <Box>
             <Button
@@ -54,7 +74,7 @@ const CheckStatus = () => {
               color="primary"
               size="small"
               style={{ marginRight: 10 }}
-              onClick={() => navigate(`/gramasewaka/cuttingrequest/${params.row.id}`)}
+              onClick={() => handleViewDetails(params.row.id,params.row.requestType)}
             >
               View Details
             </Button>
@@ -81,7 +101,7 @@ const CheckStatus = () => {
                         textTransform={'capitalize'}
                         color={grey[800]}
                         >
-                        Tree Cutting Permit Requests from Your Grama Division
+                        Your Timber Permit Requests 
                 </Typography>
             </Box>
         <Box

@@ -149,7 +149,7 @@ const Login = () => {
              
             <Typography padding="10px 5px" >Don't have an account? </Typography>
                 
-            <Link href="/signup" variant="body1" padding="10px 0px" >
+            <Link href="/register" variant="body1" padding="10px 0px" >
                 {"Sign Up"}
             </Link>
               

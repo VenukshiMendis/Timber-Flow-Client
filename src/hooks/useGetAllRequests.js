@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useGetAllRequests = () => {
+const useGetAllRequests = (url) => {
     const [isLoading, setIsLoading] = useState(null);
     const [requests, setRequests] = useState([]);
     const [error, setError] = useState(null);
@@ -10,7 +10,7 @@ const useGetAllRequests = () => {
       setError(null);
     
       try {
-        const response = await fetch("http://localhost:4000/api/citizen/allPermitRequests", {
+        const response = await fetch(url, {
           method: "GET",
           headers: {
             'Content-Type': 'application/json',

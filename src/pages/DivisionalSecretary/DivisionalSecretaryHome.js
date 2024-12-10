@@ -1,14 +1,17 @@
 import AboutCard from "../../components/about/AboutCard";
-import { homeAbout } from "../../assets/cardData";
+import { divisionalSecretaryHome } from "../../assets/cardData";
 import bossImage from "../../assets/boss.jpg";
+import Header from "../../components/header/Header";
 
 const DivisionalSecretaryHome = () => {
-    console.log()
+    
     return (
         <div>
+            <Header isLoggedIn={true}/>
             <AboutCard 
+            title = "Let's Start Today's Work!"
             backgroundImage={bossImage}
-            homeAboutData={homeAbout}
+            homeAboutData={divisionalSecretaryHome}
             />
         
         </div>

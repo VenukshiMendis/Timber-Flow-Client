@@ -2,34 +2,67 @@ import "../../App.css";
 import { DataGrid } from "@mui/x-data-grid";
 import { Box, Button, Typography } from "@mui/material";
 import Header from "../../components/header/Header";
-import { grey, pink } from "@mui/material/colors";
+import { grey} from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
+import useGetAllRequests from "../../hooks/useGetAllRequests";
+import { useEffect, useState } from "react";
 
 const CheckStatus = () => {
     const navigate = useNavigate();
 
     // Navigate based on the request type
-    const handleViewDetails = (requestType) => {
-        if (requestType === "Transport") {
-                navigate('/citizen/checkstatus/transport')
+    const handleViewDetails = (id,requestType) => {
+      console.log(id)
+        if (requestType === "transport") {
+                navigate(`/gramasewaka/viewtransportrequest/${id}`)
         }
-        else if (requestType === "Cutting") {
-            navigate('/citizen/checkstatus/cutting')
+        else if (requestType === "cutting") {
+            navigate(`/gramasewaka/viewcuttingrequest/${id}`)
     }
       };
+      
+    const url ="http://localhost:4000/api/gramasewaka/allPreviousRequests";
+
+    const {getAllRequests,requests, isLoading} = useGetAllRequests(url);
+    const [rows, setRows] = useState([]); 
+
+
+    // Fetch all permit request made by the citizen at the initial rendering of the component 
+    useEffect(() => {
+      console.log("get requests");
+      getAllRequests()
+    }, []);
     
-      const rows = [
-        { id: 1, requestType: 'Transport', date: '2023-05-01', status: 'Approved' },
-        { id: 2, requestType: 'Transport', date: '2023-04-15', status: 'Pending' },
-        { id: 3, requestType: 'Cutting', date: '2023-03-10', status: 'Rejected' },
-        { id: 4, requestType: 'Cutting', date: '2023-02-20', status: 'Approved' },
-      ];
+    useEffect(() => {
+        // Update rows when requests change and isLoading becomes false
+        if (!isLoading && requests.length > 0) {
+            console.log(requests);
+
+            // Map requests to rows and update rows state
+            const updatedRows = requests.map((row) => ({
+                id: row.req_id,
+                requestType: row.request_type,
+                name: row.name,
+                nic: row.nic,
+                date: new Date(row.date).toDateString(),
+                gramaSewakaApproval: row.grama_sewaka_approval,
+                divisionalSecretaryApproval:row.divisional_secretary_approval,
+                status:row.status
+
+            }));
+            setRows(updatedRows);
+        }
+    }, [requests, isLoading]);    
 
   const columns = [
-    { field: "id", headerName: "Reference No", width: 150},
-    { field: "requestType", headerName: "Request Type", width: 250 },
-    { field: "date", headerName: "Date", width: 250 },
-    { field: "status", headerName: "Status", width: 250 },
+    { field: "id", headerName: "Reference No", width: 100},
+    { field: "requestType", headerName: "Request Type", width: 150 },
+    { field: "name", headerName: "Name of the Applicant", width: 200 },
+    { field: "nic", headerName: "NIC Number", width: 150 },
+    { field: "date", headerName: "Date", width: 150 },
+    { field: "gramaSewakaApproval", headerName: "Grama Sewaka Approval", width: 250 },
+    { field: "divisionalSecretaryApproval", headerName: "Divisional Secretary Approval", width: 250 },
+    { field: "status", headerName: "Status", width: 150 },
     {
         field: "actions",
         headerName: "Actions",
@@ -41,23 +74,9 @@ const CheckStatus = () => {
               color="primary"
               size="small"
               style={{ marginRight: 10 }}
-              onClick={() => handleViewDetails(params.row.requestType)}
+              onClick={() => handleViewDetails(params.row.id,params.row.requestType)}
             >
               View Details
-            </Button>
-            <Button
-              variant="contained"
-              size="small"
-              disabled={params.row.status !== "Approved"}
-              sx={{ 
-                marginRight: 10,  
-                backgroundColor: pink[800],
-                '&:hover': {
-                    backgroundColor: pink[800],
-                },
-            }}
-            >
-              Download Permit
             </Button>
           </Box>
         ),

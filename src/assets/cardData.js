@@ -45,6 +45,31 @@ export const gramaHome = [
     path: "/gramasewaka/viewhistory"
   },
 ]
+
+export const divisionalSecretaryHome = [
+  {
+    id: 1,
+    cover: "https://img.icons8.com/?size=100&id=25283&format=png&color=000000",
+    title: "Timber Cutting Permission Requests",
+    desc:  "Check and approve Timber Cutting License requests from your division",
+    path: "/divisionalsecretary/allcuttingrequests"
+  },
+  {
+    id: 2,
+    cover: "https://img.icons8.com/?size=100&id=eYDrANS6kGeR&format=png&color=000000",
+    title: "Timber Transport Permission Requests",
+    desc:  "Check and approve Timber Transport Permit requests from your division",
+    path: "/divisionalsecretary/alltransportrequests"
+  },
+  {
+    id: 3,
+    cover: "https://img.icons8.com/?size=100&id=7YM7E0FU20tN&format=png&color=000000",
+    title: "View History",
+    desc: "Access a comprehensive overview of previous timber cutting and transport requests ",
+    path: "/divisionalsecretary/viewhistory"
+  },
+]
+
 export const awrapper = [
   {
     cover: "https://img.icons8.com/external-yogi-aprelliyanto-basic-outline-yogi-aprelliyanto/80/ffffff/external-graduation-education-yogi-aprelliyanto-basic-outline-yogi-aprelliyanto.png",

@@ -24,16 +24,11 @@ const TimberTransportRequestDetails = (reqId) => {
           setRequestDetails(request.requestDetails[0])
           setTreeDetails(request.treeDetails)
           setSupplier(request.requestDetails[0].timber_obtained_from)
-          console.log(requestDetails);
           
       }
   }, [request, isLoading]);
 
-    const sampleData = [
-        { no: 1, typeOfTree: 'Maple', circumference: 2.5, height: 10, reason: 'Diseased' },
-        { no: 2, typeOfTree: 'Oak', circumference: 3.2, height: 12, reason: 'Leaning dangerously' },
-        { no: 3, typeOfTree: 'Pine', circumference: 1.8, height: 8, reason: 'Roots damaged' }
-    ];
+  
 
     return (
     <Box>
@@ -228,7 +223,7 @@ const TimberTransportRequestDetails = (reqId) => {
             <Typography 
                 variant="h6" 
                 margin={1} 
-                marginTop={4} 
+                marginTop={2} 
                 marginBottom={2}  
                 color={grey[900]}
                 >
@@ -294,7 +289,7 @@ const TimberTransportRequestDetails = (reqId) => {
                 marginBottom={"20px"}  
                 color={grey[900]}
                 >
-                Details of the trees requesting to be cut
+                Details of the timber to be transported
             </Typography>
             <TableContainer component={Paper}>
             <Table>

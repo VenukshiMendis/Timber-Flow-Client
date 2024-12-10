@@ -9,7 +9,9 @@ import useGetAllRequests from "../../hooks/useGetAllRequests";
 
 const CheckStatus = () => {
 
-    const {getAllRequests,requests, isLoading, error} = useGetAllRequests();
+    const url ="http://localhost:4000/api/citizen/allPermitRequests";
+
+    const {getAllRequests,requests, isLoading, error} = useGetAllRequests(url);
     const [rows, setRows] = useState([]); 
     const navigate = useNavigate();
 
